@@ -56,15 +56,18 @@ endif()
 #==============================================================
 add_executable(TEST_MYAPP
     test.cpp
-    myapp.cpp
+    Module1.cpp
 )
 
 add_executable(MYAPP
     myapp.cpp
+    Module1.cpp
 )
 
+# Compile definition example
 target_compile_definitions(TEST_MYAPP PUBLIC -DTESTMODE)
 
+#Linking
 target_link_libraries(TEST_MYAPP PUBLIC
     CppUTest 
     CppUTestExt

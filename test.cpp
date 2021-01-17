@@ -11,19 +11,18 @@
  * reproduced or used in any manner whatsoever.
  * 
  */
-#include "CppUTest/CommandLineTestRunner.h"
-#include "CppUTest/TestHarness.h"
-#include "CppUTestExt/MockSupport.h"
-#include "myapp.hpp"
+#include <CppUTest/CommandLineTestRunner.h>
+#include <CppUTest/TestHarness.h>
+#include <CppUTestExt/MockSupport.h>
+
+#include "Module1.hpp"
 
 #include <cstdint>
-#include <cfloat>
-
-#include <vector>
 
 TEST_GROUP(MyApp_TestGroup)
 {
-      
+    Module1 myModule;
+
     void setup()
     {
         
@@ -31,13 +30,13 @@ TEST_GROUP(MyApp_TestGroup)
 
     void teardown()
     {
-  
+
     }
 };
 
 TEST(MyApp_TestGroup, TEST1)
 {   
-
+    CHECK(myModule.sampleFunction());
 }
 
 int main(int ac, char** av)
