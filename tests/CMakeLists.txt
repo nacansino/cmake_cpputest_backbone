@@ -58,18 +58,6 @@ if(BUILD_TESTING)
 endif()
 
 #==============================================================
-# Protobuf
-#==============================================================
-
-find_package(Protobuf REQUIRED)
-
-if(protobuf_VERBOSE)
-  message(STATUS "Using Protocol Buffers ${Protobuf_VERSION}")
-endif()
-
-set(CMAKE_INCLUDE_CURRENT_DIR TRUE)
-
-#==============================================================
 # Compile application code
 #==============================================================
 add_executable(TEST_${MODULE_UNDER_TEST}
