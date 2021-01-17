@@ -16,12 +16,27 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_CXX_STANDARD 11)
 
 #==============================================================
+# Protobuf
+#==============================================================
+
+find_package(Protobuf REQUIRED)
+
+if(protobuf_VERBOSE)
+  message(STATUS "Using Protocol Buffers ${Protobuf_VERSION}")
+endif()
+
+set(CMAKE_INCLUDE_CURRENT_DIR TRUE)
+
+set(MY_PROTOS proto/addressbook.proto)
+
+#==============================================================
 # Compile application code
 #==============================================================
 
 add_executable(
     ${PROJECT_NAME}
     myapp.cpp
+    ${MY_PROTOS}
 )
 
 target_include_directories(
@@ -33,4 +48,7 @@ target_include_directories(
 # Link the module
 target_link_libraries(${PROJECT_NAME} PUBLIC
     ${MODULE_NAME}
+    protobuf::libprotobuf
 )
+
+protobuf_generate(TARGET ${PROJECT_NAME})
