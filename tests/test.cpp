@@ -15,7 +15,7 @@
 #include <CppUTest/TestHarness.h>
 #include <CppUTestExt/MockSupport.h>
 
-#include "Module1.hpp"
+#include <Module1.hpp>
 
 #include <cstdint>
 
