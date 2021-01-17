@@ -92,6 +92,13 @@ int main(int argc, char* argv[]) {
       cerr << "Failed to write address book." << endl;
       return -1;
     }
+
+    // print to ostream
+    string output_str{};
+    if (!address_book.SerializeToString(&output_str)){
+        cerr << "can't serialize to string" << endl;
+    }
+    printf("\n%s\n", output_str.c_str());
   }
 
   // Optional:  Delete all global objects allocated by libprotobuf.
